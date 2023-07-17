@@ -5,7 +5,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 const https = require("https");
 
 app.get("/", (req, res)=>{
-    res.send("<h1>Welcome to my news letter app</h1>");
+    homepagePath = __dirname + "./signup.html";
+    res.sendFile(homepagePath, (err)=>{
+        if (err) {
+            throw err;
+        } else {}
+    });
     console.log("Home route get request handled successfully!");
 });
 
